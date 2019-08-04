@@ -15,16 +15,11 @@ namespace DbHolder
             var fileBuf = File.ReadAllBytes(path);
             var header = ByteBufToStruct<DbHeader>(fileBuf);
             var ranges = ByteBufToArrayOfStructs<DbRange>(fileBuf, (int)header.offset_ranges, header.records);
-            var cities = ByteBufToArrayOfStructs<DbCity>(fileBuf, (int)header.offset_cities, header.records);
+            var cities = ByteBufToArrayOfStructs<uint>(fileBuf, (int)header.offset_cities, header.records);
 
             var locationSize = Marshal.SizeOf<DbLocation>();
 
-            var locations = ByteBufToStruct<Locations>(fileBuf, (int)header.offset_locations);
-
-            //var locations = new DbLocation[header.records];
-
-            //for (int i = 0; i < locations.Length; i++)
-            //    locations[i] = ByteBufToStruct<DbLocation>(fileBuf, (int)(header.offset_locations + i * locationSize));
+            var locations = ByteBufToArrayOfStructs<DbLocation>(fileBuf, (int)header.offset_locations, header.records);
         }
 
         private T ByteBufToStruct<T>(byte[] buf, int index = 0) where T : struct
