@@ -46,18 +46,18 @@ namespace DbHolder
         {
             var bytes = File.ReadAllBytes(path);
 
-            var header = ByteBufToObj<DbHeader>(bytes);
+            var header = new DbHeader(bytes);
 
             var locations = Enumerable.Range(0, header.Records)
-                                      .Select(i => ByteBufToObj<DbLocation>(bytes, (int)(header.Offset_locations + i * DbLocation.size), DbLocation.size))
+                                      .Select(i => new DbLocation(bytes, (int)(header.Offset_locations + i * DbLocation.size), DbLocation.size))
                                       .ToArray();
 
             var ranges = Enumerable.Range(0, header.Records)
-                                   .Select(i => ByteBufToObj<DbRange>(bytes, (int)(header.Offset_ranges + i * DbRange.size), DbRange.size, locations))
+                                   .Select(i => new DbRange(bytes, (int)(header.Offset_ranges + i * DbRange.size), DbRange.size))
                                    .ToArray();
 
             var cities = Enumerable.Range(0, header.Records)
-                                   .Select(i => ByteBufToObj<DbCity>(bytes, (int)(header.Offset_cities + i * 4), 4))
+                                   .Select(i => new DbCity(bytes, (int)(header.Offset_cities + i * 4), 4))
                                    .ToArray();
         }
 
@@ -65,7 +65,7 @@ namespace DbHolder
         {
             Func<BinaryReader, object> valueGetter = null;
 
-            if (p.Name == "Location")
+            if (p.PropertyType == typeof(DbLocation))
             {
                 var location = locations[(uint)(propTypeMap[typeof(uint)](reader))];
 

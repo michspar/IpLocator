@@ -19,7 +19,7 @@ namespace DbHolderTests
             holder.LoadDbFromFile(Path.Combine(Environment.CurrentDirectory, "geobase.dat"));
             stopwatch.Stop();
 
-            Logger.LogMessage("Test passed in {0}ms", stopwatch.ElapsedMilliseconds);
+            Logger.LogMessage("Db loaded in {0}ms", stopwatch.ElapsedMilliseconds);
         }
     }
 }
