@@ -9,6 +9,8 @@ namespace IpLocator.WebAPI
 {
     public class IpController : ApiController
     {
+        //IResolverService resolver;
+
         [HttpGet]
         public string Location(string ip)
         {

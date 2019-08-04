@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpLocator", "IpLocator\IpLocator.csproj", "{207D3048-BDF9-4B3F-911D-62D4CADD44A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbHolder", "DbHolder\DbHolder.csproj", "{B463D22B-4EB1-48D0-83A6-BAEE76A983D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbHolderTests", "DbHolderTests\DbHolderTests.csproj", "{32601FEB-0E93-4187-AD2D-E4DD6977F891}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{207D3048-BDF9-4B3F-911D-62D4CADD44A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{207D3048-BDF9-4B3F-911D-62D4CADD44A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{207D3048-BDF9-4B3F-911D-62D4CADD44A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B463D22B-4EB1-48D0-83A6-BAEE76A983D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B463D22B-4EB1-48D0-83A6-BAEE76A983D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B463D22B-4EB1-48D0-83A6-BAEE76A983D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B463D22B-4EB1-48D0-83A6-BAEE76A983D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32601FEB-0E93-4187-AD2D-E4DD6977F891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32601FEB-0E93-4187-AD2D-E4DD6977F891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32601FEB-0E93-4187-AD2D-E4DD6977F891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32601FEB-0E93-4187-AD2D-E4DD6977F891}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

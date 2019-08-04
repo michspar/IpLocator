@@ -15,12 +15,12 @@ namespace IpLocator.Controllers
 
         public ActionResult IpSearch()
         {
-            return View();
+            return PartialView();
         }
 
         public ActionResult CitySearch()
         {
-            return View();
+            return PartialView();
         }
     }
 }
