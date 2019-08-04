@@ -19,7 +19,12 @@ namespace DbHolder
 
             var locationSize = Marshal.SizeOf<DbLocation>();
 
-            var locations = Enumerable.Range(0, header.records).Select(i => ByteBufToStruct<DbLocation>(fileBuf, (int)(header.offset_locations + i * locationSize))).ToArray();
+            var locations = ByteBufToStruct<Locations>(fileBuf, (int)header.offset_locations);
+
+            //var locations = new DbLocation[header.records];
+
+            //for (int i = 0; i < locations.Length; i++)
+            //    locations[i] = ByteBufToStruct<DbLocation>(fileBuf, (int)(header.offset_locations + i * locationSize));
         }
 
         private T ByteBufToStruct<T>(byte[] buf, int index = 0) where T : struct

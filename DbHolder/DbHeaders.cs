@@ -52,6 +52,12 @@ namespace DbHolder
         public float longitude;         // долгота
     }
 
+    struct Locations
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 100000)]
+        public DbLocation[] locations;
+    }
+
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     struct DbCity
     {
