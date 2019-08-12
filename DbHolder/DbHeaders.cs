@@ -33,6 +33,8 @@ namespace DbHolder
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct DbLocation
     {
+        public const int size = 96;
+
         Int64 country_1;
         public string Country {  get { return Encoding.ASCII.GetString(BitConverter.GetBytes(country_1)).TrimEnd('\0'); } }
 
@@ -73,6 +75,11 @@ namespace DbHolder
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct DbCity
     {
-        public uint index;         //список индексов записей местоположения отсортированный по названию города
+        uint index;         //список индексов записей местоположения отсортированный по названию города
+
+        public DbLocation GetLocation(DbLocation[] locations)
+        {
+            return locations[index / DbLocation.size];
+        }
     }
 }
