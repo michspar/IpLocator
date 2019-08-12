@@ -23,7 +23,7 @@ namespace DbHolder
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    struct DbRange
+    public struct DbRange
     {
         public uint ip_from;           // начало диапазона IP адресов
         public uint ip_to;             // конец диапазона IP адресов
@@ -31,7 +31,7 @@ namespace DbHolder
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    struct DbLocation
+    public struct DbLocation
     {
         Int64 country_1;
         public string Country {  get { return Encoding.ASCII.GetString(BitConverter.GetBytes(country_1)).TrimEnd('\0'); } }
@@ -71,7 +71,7 @@ namespace DbHolder
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    struct DbCity
+    public struct DbCity
     {
         public uint index;         //список индексов записей местоположения отсортированный по названию города
     }

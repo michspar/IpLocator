@@ -10,16 +10,21 @@ namespace DbHolder
 {
     public class DbHolder
     {
+        public DbRange Ranges { get; private set; }
+
+
         public void LoadDbFromFile(string path)
         {
             var fileBuf = File.ReadAllBytes(path);
             var header = ByteBufToStruct<DbHeader>(fileBuf);
+
             var ranges = ByteBufToArrayOfStructs<DbRange>(fileBuf, (int)header.offset_ranges, header.records);
-            var cities = ByteBufToArrayOfStructs<uint>(fileBuf, (int)header.offset_cities, header.records);
 
             var locationSize = Marshal.SizeOf<DbLocation>();
-
             var locations = ByteBufToArrayOfStructs<DbLocation>(fileBuf, (int)header.offset_locations, header.records);
+
+            var cities = ByteBufToArrayOfStructs<uint>(fileBuf, (int)header.offset_cities, header.records);
+            var cities_decoded = cities.Select(x => ByteBufToStruct<DbLocation>(fileBuf, (int)(header.offset_locations + x))).ToArray();
         }
 
         private T ByteBufToStruct<T>(byte[] buf, int index = 0) where T : struct
