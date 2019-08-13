@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbData.cs" />
     <Compile Include="DbHeaders.cs" />
     <Compile Include="DbHolder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

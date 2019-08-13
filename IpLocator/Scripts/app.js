@@ -9,6 +9,24 @@
         }
     };
 
+    request.onerror = function (e) { alert(e); }
+
+    request.send();
+}
+
+function loadJson(url, callback) {
+    var request = new XMLHttpRequest();
+
+    request.open('GET', url, true);
+
+    request.onload = function () {
+        if (request.status >= 200 && request.status < 400) {
+            callback(JSON.parse(request.responseText));
+        }
+    };
+
+    request.onerror = function (e) { alert(e); }
+
     request.send();
 }
 
@@ -23,7 +41,9 @@ function onCitySearchTab() {
 function onIpSearch() {
     var ip = document.querySelector('#ipInput').value;
 
-    loadToElementBySelector('#ipSearchResult', '/ip/location?ip=' + ip);
+    loadJson('/ip/location?ip=' + ip, function (res) {
+        document.querySelector('#citySpan').innerText = res.City;
+    });
 }
 
 function onCitySearch() {
