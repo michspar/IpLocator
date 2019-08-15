@@ -38,11 +38,20 @@ function onCitySearchTab() {
     loadToElementBySelector('#partialViewPlaceholder', '/CitySearch');
 }
 
+function setBySelector(selector, value) {
+    document.querySelector(selector).innerText = value;
+}
+
 function onIpSearch() {
     var ip = document.querySelector('#ipInput').value;
 
     loadJson('/ip/location?ip=' + ip, function (res) {
-        document.querySelector('#citySpan').innerText = res.City;
+        setBySelector('#citySpan', res.City);
+        setBySelector('#countrySpan', res.Country);
+        setBySelector('#regionSpan', res.Region);
+        setBySelector('#orgSpan', res.Organization);
+        setBySelector('#latSpan', res.latitude);
+        setBySelector('#longSpan', res.longitude);
     });
 }
 

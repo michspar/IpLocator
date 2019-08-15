@@ -3,16 +3,17 @@
 <html>
 <head>
     <meta name='viewport' content='width=device-width' />
+    <link rel="stylesheet" href="~/Content/styles.css">
     <title>Index</title>
     <script src='~/Scripts/app.js'>
     </script>
 </head>
 <body>
-    <div>
-        <ul>
-            <li><a href='#' onclick='onIpSearchTab()'>Поиск по IP</a></li>
-            <li><a href='#' onclick='onCitySearchTab()'>Поиск по городу</a></li>
-        </ul>
+    <div class="sidenav">
+        <a href='#' onclick='onIpSearchTab()'>Поиск по IP</a>
+        <a href='#' onclick='onCitySearchTab()'>Поиск по городу</a>
+    </div>
+    <div class="content">
         <div id='partialViewPlaceholder'></div>
     </div>
 </body>
