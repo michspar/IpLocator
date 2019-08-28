@@ -36,6 +36,7 @@
     padding-left: 20px;
     padding-top: 20px;
 }
-.content * {
-    margin: 5px;
-}
+
+    .content > * {
+        margin: 5px;
+    }
