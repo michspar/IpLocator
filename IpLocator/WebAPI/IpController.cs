@@ -18,7 +18,7 @@ namespace IpLocator.WebAPI
 
             if (!IPAddress.TryParse(ip, out inputIp))
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.BadRequest, ReasonPhrase = "Invalid Ip address" });
             }
 
             holder.LoadDbFromFile(System.Web.Hosting.HostingEnvironment.MapPath("~/geobase.dat"));
